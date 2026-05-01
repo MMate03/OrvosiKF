@@ -22,8 +22,7 @@ def loadImage(filename):
 
 def average_filter(img, kernel_size=3):
     res = np.zeros(img.shape, dtype=float)
-    pad = kernel_size // 2
-    padded = np.pad(img, pad, mode='edge')
+    padded = np.pad(img, kernel_size // 2, mode='edge')
 
     for i in range(kernel_size):
         for j in range(kernel_size):

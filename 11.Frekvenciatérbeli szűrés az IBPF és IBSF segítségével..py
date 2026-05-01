@@ -5,8 +5,9 @@ def band_filter(img, d0, d1, mode='pass'):
 
     dft = np.fft.fftshift(cv2.dft(np.float32(img), flags=cv2.DFT_COMPLEX_OUTPUT))
 
-    r, c = img.shape
-    y, x = np.ogrid[-r // 2:r - r // 2, -c // 2:c - c // 2]
+    rows, cols = img.shape
+    crow, ccol = rows // 2, cols // 2
+    y, x = np.ogrid[-crow:rows - crow, -ccol:cols - ccol]
     dist = np.sqrt(x * x + y * y)
 
     mask = (dist >= d0) & (dist <= d1)

@@ -1,6 +1,6 @@
 import cv2, numpy as np
 
-img = cv2.imread("lena.pgm", 0)
+img = cv2.imread("t2.jpg", 0)
 edges = cv2.Canny(cv2.GaussianBlur(img, (5, 5), 0), 100, 200)
 
 lines = cv2.HoughLinesP(edges, 1, np.pi / 180, 50, minLineLength=50, maxLineGap=10)

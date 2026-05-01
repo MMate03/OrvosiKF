@@ -20,9 +20,9 @@ def loadImage(filename):
 
     return img.reshape((int(h), int(w)))
 
-def median_filter(img, k=3):
-    padded = np.pad(img, k // 2, mode='edge')
-    windows = sliding_window_view(padded, (k, k))
+def median_filter(img, kernel_size=3):
+    padded = np.pad(img, kernel_size // 2, mode='edge')
+    windows = sliding_window_view(padded, (kernel_size, kernel_size))
 
     return np.median(windows, axis=(2, 3)).astype(np.uint8)
 

@@ -6,7 +6,6 @@ def hit_or_miss_ultra_short(image, kernel):
     h, w = image.shape
     pad = np.pad(image, (kernel.shape[0] // 2, kernel.shape[1] // 2), mode='constant')
 
-    # Listakomprehenzióval összegyűjtjük a feltételeket, majd az összeset össze-ÉSeljük
     masks = [(pad[i:i + h, j:j + w] == kernel[i, j])
              for i in range(kernel.shape[0]) for j in range(kernel.shape[1]) if kernel[i, j] != -1]
 
